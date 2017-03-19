@@ -25,3 +25,22 @@
 # Explanation
 #
 # The integers that are between A = {2, 4} and B = {16, 32, 96} are 4, 8, and 16.
+
+#!/bin/ruby
+
+n,m = gets.strip.split(' ')
+n = n.to_i
+m = m.to_i
+a = gets.strip
+a = a.split(' ').map(&:to_i)
+b = gets.strip
+b = b.split(' ').map(&:to_i)
+
+start = a.max
+finish = b.min
+count = 0
+(start..finish).each do |num|
+    count += 1 if ((a.all? { |anum| num % anum == 0}) && (b.all? {|bnum| bnum % num == 0}))
+end
+
+print count
