@@ -36,3 +36,27 @@
 #
 # The diagram below depicts the number of times Maria broke her best and worst records throughout the season:
 # She broke her best record four times (after games 1, 2, 3, and 9) and her worst record zero times (no score during the season was lower than the one she earned during her first game), so we print 4 0 as our answer.
+
+#!/bin/ruby
+
+n = gets.strip.to_i
+score = gets.strip
+score = score.split(' ').map(&:to_i)
+# your code goes here
+
+highest = score.first
+lowest = score.first
+high_count = 0
+low_count = 0
+
+score.each do |num|
+    if num > highest
+        highest = num
+        high_count += 1
+    elsif num < lowest
+        lowest = num
+        low_count += 1
+    end
+end
+
+print "#{high_count} #{low_count}"
