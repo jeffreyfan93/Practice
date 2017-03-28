@@ -21,3 +21,21 @@
 # Explanation
 #
 # As you can see from the figure above, we can match three pairs of socks. Thus, we print 3 on a new line.
+
+#!/bin/ruby
+
+n = gets.strip.to_i
+c = gets.strip
+c = c.split(' ').map(&:to_i)
+
+total = 0
+socks = Hash.new(0)
+c.each do |num|
+   socks[num] += 1
+end
+
+socks.each do |color, count|
+    total += (count / 2)
+end
+
+print total
