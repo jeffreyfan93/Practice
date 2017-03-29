@@ -28,3 +28,27 @@
 #    \    /
 #     \/\/
 # It's clear that there is only one valley there, so we print 1 on a new line.
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+n = gets.strip.to_i
+steps = gets.strip.split('')
+
+altitude = 0
+valleys = 0
+
+steps.each do |step|
+    if altitude == 0 && step == "D"
+        altitude -= 1
+        valleys += 1
+    else
+        case step
+        when "U"
+            altitude += 1
+        when "D"
+            altitude -= 1
+        end
+    end
+end
+
+print valleys
