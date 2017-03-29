@@ -41,3 +41,11 @@
 # If Brie starts turning from page 5, she doesn't need to turn any pages:
 #
 # Because we want to print the minimum number of page turns, we print 0 as our answer.
+
+#!/bin/ruby
+
+n = gets.strip.to_i
+p = gets.strip.to_i
+# your code goes here
+
+print [(p / 2), ((n-p) / 2)].min
