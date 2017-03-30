@@ -37,3 +37,28 @@
 # Explanation 1
 #
 # There is no way to buy one keyboard and one USB drive because 4 + 5 > 5, so we print -1.
+
+#!/bin/ruby
+
+s,n,m = gets.strip.split(' ')
+s = s.to_i
+n = n.to_i
+m = m.to_i
+keyboards = gets.strip
+keyboards = keyboards.split(' ').map(&:to_i)
+pendrives = gets.strip
+pendrives = pendrives.split(' ').map(&:to_i)
+
+sum = []
+keyboards.each do |keyboard|
+    pendrives.each do |pendrive|
+        sum << (keyboard + pendrive)
+    end
+end
+
+sum.select! {|total| total <= s}
+if sum.empty?
+    print -1
+else
+    print sum.max
+end
