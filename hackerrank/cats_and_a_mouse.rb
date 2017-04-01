@@ -35,3 +35,13 @@
 # Query 1: In this query, cats A and B reach mouse C at the exact same time:
 #
 # Because the mouse escapes, we print Mouse C on a new line.
+
+#!/bin/ruby
+
+q = gets.strip.to_i
+for a0 in (0..q-1)
+    x,y,z = gets.strip.split(' ')
+    x = x.to_i
+    y = y.to_i
+    z = z.to_i
+end
