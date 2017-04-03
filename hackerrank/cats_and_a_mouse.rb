@@ -44,4 +44,16 @@ for a0 in (0..q-1)
     x = x.to_i
     y = y.to_i
     z = z.to_i
+
+    a_to_mouse = (z - x).abs
+    b_to_mouse = (z - y).abs
+    distance = a_to_mouse - b_to_mouse
+
+    if distance == 0
+        puts "Mouse C"
+    elsif distance < 0
+        puts "Cat A"
+    else
+        puts "Cat B"
+    end
 end
