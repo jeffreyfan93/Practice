@@ -43,3 +43,42 @@
 # For , it starts with a zero so all possible splits violate the second condition.
 # For , the only possible split is , which violates the first condition.
 # For , there are no possible splits because  only has one digit.
+
+#!/bin/ruby
+
+def ascending?(array)
+    (0...(array.length - 1)).each do |idx|
+        return false if array[idx] + 1 != array[idx + 1]
+    end
+    return true
+end
+
+q = gets.strip.to_i
+for a0 in (0..q-1)
+    s = gets.strip.split('').map(&:to_i)
+    # your code goes here
+    all_iterations = []
+    if (s[0] == 0 || s.length == 1)
+        puts 'NO'
+    else
+        (1..(s.length / 2)).each do |take|
+            temp = []
+            s_copy = s.dup
+            until s_copy.empty?
+                current = s_copy.shift(take)
+                take += 1 if current.all? {|num| num == 9}
+                current = current.join.to_i
+                temp << current
+            end
+            all_iterations << temp
+        end
+
+        all_iterations.each do |iter|
+            puts "YES #{iter[0]}" if ascending?(iter)
+        end
+        if all_iterations.none? {|iter| ascending?(iter)}
+            puts 'NO'
+        end
+
+    end
+end
