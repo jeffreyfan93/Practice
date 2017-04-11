@@ -43,3 +43,27 @@
 #
 # 100 can be expressed as the sum of the cubes of 1, 2, 3, 4.
 # (1 + 8 + 27 + 64 = 100). There is no other way to express 100 as the sum of cubes.
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+sum = gets.strip.to_i
+power = gets.strip.to_i
+
+def power_sum(sum, max, power)
+    if sum == 0
+        return 1
+    elsif sum < 0 || max <= 0
+        return 0
+    else
+        count = 0
+        while (max > 0)
+            r = sum - (max ** power)
+            count += power_sum(r, max - 1, power)
+            max -= 1
+        end
+        return count
+    end
+end
+
+
+print power_sum(sum, Math.sqrt(sum).floor, power)
