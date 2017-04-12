@@ -42,3 +42,34 @@
 # Test Case #05: S1 and S2 are already anagram to each other.
 #
 # Test Case #06: Here S1 = "xaxb" and S2 = "bbxx". He had to replace 'a' from S1 with 'b' so that S1 = "xbxb" and we can rearrange its letter to "bbxx" in order to get S2.
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+num = gets.strip.to_i
+
+for a0 in (0..num-1)
+    string = gets.strip
+    if string.length.odd?
+        puts -1
+    else
+        len = string.length / 2
+        string1 = string[0...len]
+        string2 = string[len..-1]
+        hash1 = Hash.new(0)
+        hash2 = Hash.new(0)
+        change = 0
+
+        string1.split('').each do |letter|
+            hash1[letter] += 1
+        end
+        string2.split('').each do |letter|
+            hash2[letter] += 1
+        end
+
+        hash1.each do |key, val|
+            change += (val - hash2[key]) if val > hash2[key]
+        end
+
+        puts change
+    end
+
+end
