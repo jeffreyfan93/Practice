@@ -32,3 +32,28 @@
 # This string is already a palindrome, so we print -1; however, 0, 1, and 2 are also all acceptable answers, as the string will still be a palindrome if any one of the characters at those indices are removed.
 #
 # Note: The custom checker logic for this challenge is available here.
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+test = gets.strip.to_i
+
+def is_palindrome?(string)
+    string == string.reverse
+end
+
+
+for a0 in (0..test-1)
+    string = gets.strip
+    if is_palindrome?(string)
+        puts -1
+    else
+        string.length.times do |idx|
+            new_string = string[0...idx] + string[idx+1..-1]
+            if is_palindrome?(new_string)
+                puts idx
+                break
+            elsif idx == string.length - 1
+                puts -1
+            end
+        end
+    end
+end
