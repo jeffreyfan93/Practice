@@ -57,3 +57,7 @@ for a0 in (0..test-1)
         end
     end
 end
+
+# go through once and compare first and last until different.
+# then take out one of them and see if is palindrome?
+# then take out other one.
