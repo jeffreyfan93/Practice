@@ -40,24 +40,27 @@ def is_palindrome?(string)
     string == string.reverse
 end
 
-
 for a0 in (0..test-1)
     string = gets.strip
-    if is_palindrome?(string)
-        puts -1
-    else
-        string.length.times do |idx|
-            new_string = string[0...idx] + string[idx+1..-1]
-            if is_palindrome?(new_string)
-                puts idx
+    length = string.length
+    (0...length/2).each do |idx|
+        start = idx
+        finish = length - 1 - idx
+        if (string[start] != string[finish])
+            string1 = string[0...start] + string[start + 1..-1]
+            string2 = string[0...finish] + string[finish + 1..-1]
+            if is_palindrome?(string1)
+                puts start
                 break
-            elsif idx == string.length - 1
+            elsif is_palindrome?(string2)
+                puts finish
+                break
+            else
                 puts -1
+                break
             end
+        elsif start == length/2 - 1
+            puts -1
         end
     end
 end
-
-# go through once and compare first and last until different.
-# then take out one of them and see if is palindrome?
-# then take out other one.
