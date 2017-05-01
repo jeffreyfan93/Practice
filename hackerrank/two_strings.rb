@@ -29,5 +29,3 @@
 #
 # a = 'hello', b = 'world'. The substrings 'o' and 'l' are common to both a and b, so we print YES on a new line.
 # a = 'hi', b = 'world'. Because a and b have no common substrings, we print NO on a new line.
-
-# asdf
