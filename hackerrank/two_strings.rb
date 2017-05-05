@@ -30,4 +30,19 @@
 # a = 'hello', b = 'world'. The substrings 'o' and 'l' are common to both a and b, so we print YES on a new line.
 # a = 'hi', b = 'world'. Because a and b have no common substrings, we print NO on a new line.
 
-# asdf
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+num = gets.strip.to_i
+
+num.times do |time|
+    a = gets.strip.split('').uniq!
+    b = gets.strip.split('').uniq!
+
+    a.each.with_index do |letter, idx|
+        if b.include?(letter)
+            puts 'YES'
+            break
+        elsif idx == a.length - 1
+            puts 'NO'
+        end
+    end
+end
