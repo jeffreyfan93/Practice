@@ -31,3 +31,5 @@
 # Test Case 1: S = "bcxz"
 # |c - b| = 1, but |x - z| = 2
 # At this point, we stop evaluating S (as |c - b| != |x - z|) and print Not Funny.
+
+# afs
