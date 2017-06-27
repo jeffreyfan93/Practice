@@ -31,3 +31,22 @@
 # Test Case 1: S = "bcxz"
 # |c - b| = 1, but |x - z| = 2
 # At this point, we stop evaluating S (as |c - b| != |x - z|) and print Not Funny.
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+T = gets.strip.to_i
+
+for a0 in (0..T-1)
+    s = gets.strip
+    r = s.reverse
+    length = s.length
+    (1..length-1).each do |idx|
+        if (s[idx].ord-s[idx-1].ord).abs != (r[idx].ord-r[idx-1].ord).abs
+           puts 'Not Funny'
+           break
+        end
+        if ((s[idx].ord-s[idx-1].ord).abs == (r[idx].ord-r[idx-1].ord).abs) && (idx == length-1)
+           puts 'Funny'
+        end
+    end
+
+end
